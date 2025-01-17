@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ilmiyishlar</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #3498db;
+            --background-color: #f0f2f4;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            background-color: var(--background-color);
+            color: #2c3e50;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column; /* Vertikal holatga o'tkazildi */
+            gap: 20px;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+        header h1 {
+            font-size: 2.5em;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav .nav-container {
+            display: flex;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+        nav a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            position: relative;
+            transition: color 0.3s;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s;
+        }
+        nav a:hover {
+            color: var(--accent-color);
+        }
+        nav a:hover::after {
+            width: 100%;
+        }
+        .content {
+            background-color: white;
+            padding: 40px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .content h2 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .biography img {
+            display: block;
+            margin: 20px auto;
+            max-width: 50%;
+            height: 300px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .works ul {
+            list-style-type: none;
+        }
+        .works ul li {
+            background-color: var(--background-color);
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+        .works ul li:hover {
+            transform: translateX(10px);
+        }
+        @media (max-width: 768px) {
+            header {
+                clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            }
+            .container {
+                width: 95%;
+                padding: 10px;
+            }
+            nav .nav-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav a {
+                margin: 10px 0;
+            }
+            .content {
+                padding: 20px;
+            }
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #4a6fa5;
+            color: #fff;
+        }
+
+        /* Custom styles for the four boxes */
+        .box {
+            width: 100%;
+            height: 150px;
+            background-color: #e0e;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            cursor: pointer;
+            clip-path: polygon(20% 0%, 100% 0%, 80% 100%, 0% 100%);
+            transform: translateX(100vw); /* Off-screen at start */
+            opacity: 0; /* Start with hidden */
+            transition: background-color 0.3s ease, transform 0.3s ease, opacity 0.5s ease-in-out;
+        }
+
+        /* Animation to bring boxes into view */
+        @keyframes slideIn {
+            0% {
+                transform: translateX(100vw);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .box:nth-child(1) {
+            animation: slideIn 0.8s ease-out 0.2s forwards;
+        }
+
+        .box:nth-child(2) {
+            animation: slideIn 0.8s ease-out 0.4s forwards;
+        }
+
+        .box:nth-child(3) {
+            animation: slideIn 0.8s ease-out 0.6s forwards;
+        }
+
+        .box:nth-child(4) {
+            animation: slideIn 0.8s ease-out 0.8s forwards;
+        }
+
+        .box:hover {
+            background-color: #e0e;
+            transform: translateY(-5px);
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Ilmiyishlar</h1>
+    </header>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html">Bosh sahifa</a>
+            <a href="diniy.html">1-boʻlim</a>
+            <a href="marifiy.html">2-boʻlim</a>
+            <a href="yodnomalar.html">3-boʻlim</a>
+        </div>
+    </nav>
+
+    <!-- 4ta tort burchak -->
+    <div class="container">
+        <div class="box" onclick="location.href='https://drive.google.com/file/d/1mzg4GAsI02_ivuiECKOt7LUl6Ahe0HzD/view?usp=sharing';">
+            <h2>PDF Kitobni Ko'rish</h2>
+            <p>Bu yerda PDF kitobni ochishingiz mumkin.</p>
+        </div>
+
+        <div class="box" onclick="location.href='page2.html';">
+            <h2>Malumot 2</h2>
+            <p></p>
+        </div>
+        <div class="box" onclick="location.href='page3.html';">
+            <h2>Malumot 3</h2>
+            <p></p>
+        </div>
+        <div class="box" onclick="location.href='page4.html';">
+            <h2>Malumot 4</h2>
+            <p></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Ilmiyishlar. Barcha huquqlar himoyalangan.</p>
+    </footer>
+</body>
+</html>
